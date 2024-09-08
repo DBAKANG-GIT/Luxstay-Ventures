@@ -1,4 +1,11 @@
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Luxstay Ventures | Luxury Short-Stay Rentals for Business & Leisure',
+  description:
+    'Luxstay Ventures offers exceptional short-stay rentals designed for luxury, comfort, and convenience. Explore our premium accommodations tailored for both business and leisure travelers.',
+};
 
 export default function Home() {
   return (
