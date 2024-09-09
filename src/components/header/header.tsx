@@ -4,7 +4,7 @@ import Image from 'next/image';
 import mobileLogo from '@/public/logo/luxstay-logo-colored.svg';
 import desktopLogo from '@/public/logo/text-logo-symbol-coloured.svg';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import CustomButton from '../custom-button/custom-button';
 
 type NavLinkProps = {
   href: string;
@@ -133,13 +133,7 @@ const Navbar = () => {
                 <NavLink key={link.href} href={link.href} label={link.label} />
               ))}
               <span className="text-gray-400">|</span>
-              <Button
-                className="bg-gold-accent-color text-white ml-4 px-4 py-2 hover:bg-opacity-90 hover:bg-electric-green-500"
-                variant="outline"
-              >
-                <Link href="/book"></Link>
-                Book Now
-              </Button>
+              <CustomButton href="/book" text="Book Now" />
             </div>
 
             {/* Hamburger Menu Button */}
@@ -167,12 +161,7 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
-              <Button
-                className="bg-gold-accent-color my-2 text-white hover:bg-electric-green-500 hover:bg-opacity-90 w-full"
-                variant="outline"
-              >
-                <Link href="/book">Book Now</Link>
-              </Button>
+              <CustomButton href="/book" text="Book Now" props="w-full" />
             </div>
           </div>
         )}
