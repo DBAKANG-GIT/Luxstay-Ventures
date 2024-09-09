@@ -60,6 +60,8 @@ const config: Config = {
       },
       textColor: {
         'faded-grey': 'rgba(51, 51, 51, 0.8)',
+        'light-grey': 'rgba(192, 192, 192, 1)',
+        'bright-gold': 'rgba(252, 236, 165, 1)',
       },
       borderRadius: {
         lg: 'var(--radius)',
