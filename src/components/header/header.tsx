@@ -1,5 +1,7 @@
 'use client';
 import { useState } from 'react';
+import { useSpring, animated } from 'react-spring';
+
 import Image from 'next/image';
 import mobileLogo from '@/public/logo/luxstay-logo-colored.svg';
 import desktopLogo from '@/public/logo/text-logo-symbol-coloured.svg';
@@ -102,72 +104,74 @@ const Navbar = () => {
     { href: '/contact', label: 'Contact Us' },
   ];
 
+  const animation = useSpring({
+    transform: isOpen ? `translateY(0)` : `translateY(-100%)`,
+    config: { mass: 1, tension: 100, friction: 15 },
+  });
+
   return (
-    <>
-      {/* <div className="fixed top-0 left-0 right-0 h-2 bg-red-500 sm:bg-green-500 md:bg-blue-500 lg:bg-yellow-500 xl:bg-purple-500"></div> */}
-      <nav className="bg-white shadow-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            id="logo-and-hamburger-container"
-            className="flex justify-between items-center h-24"
-          >
-            {/* Logo */}
-            <div className="flex-shrink-0">
-              <Link href="/">
-                <Image
-                  src={mobileLogo}
-                  className="h-12 w-12 lg:hidden"
-                  alt="Mobile Logo"
-                />
-                <Image
-                  src={desktopLogo}
-                  className="hidden lg:block h-48 w-48"
-                  alt="Desktop Logo"
-                />
-              </Link>
-            </div>
+    <nav className="bg-white shadow-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          id="logo-and-hamburger-container"
+          className="flex justify-between items-center h-24"
+        >
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link href="/">
+              <Image
+                src={mobileLogo}
+                className="h-12 w-12 lg:hidden"
+                alt="Mobile Logo"
+              />
+              <Image
+                src={desktopLogo}
+                className="hidden lg:block h-48 w-48"
+                alt="Desktop Logo"
+              />
+            </Link>
+          </div>
 
-            {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8 items-center">
-              {navLinks.map((link) => (
-                <NavLink key={link.href} href={link.href} label={link.label} />
-              ))}
-              <span className="text-gray-400">|</span>
-              <CustomButton href="/book" text="Book Now" />
-            </div>
+          {/* Desktop Menu */}
+          <div className="hidden md:flex space-x-8 items-center">
+            {navLinks.map((link) => (
+              <NavLink key={link.href} href={link.href} label={link.label} />
+            ))}
+            <span className="text-gray-400">|</span>
+            <CustomButton href="/book" text="Book Now" />
+          </div>
 
-            {/* Hamburger Menu Button */}
-            <div className="-mr-2 flex md:hidden">
-              <button
-                onClick={toggleMenu}
-                className="p-2 rounded-md text-gray-800 hover:text-gray-500 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
-              >
-                <NavIcon isOpen={isOpen} />
-              </button>
-            </div>
+          {/* Hamburger Menu Button */}
+          <div className="-mr-2 flex md:hidden">
+            <button
+              onClick={toggleMenu}
+              className="p-2 rounded-md text-gray-800 hover:text-gray-500 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+            >
+              <NavIcon isOpen={isOpen} />
+            </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Dropdown Menu */}
-        {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="block px-3 py-2 text-faded-grey hover:text-black rounded-md text-base font-medium hover:bg-gray-100"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <CustomButton href="/book" text="Book Now" props="w-full" />
-            </div>
+      {/* Mobile Dropdown Menu */}
+      {isOpen && (
+        <animated.div style={animation} className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="block px-3 py-2 text-faded-grey hover:text-black rounded-md text-base font-medium hover:bg-gray-100"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <CustomButton href="/book" text="Book Now" props="w-full" />
           </div>
-        )}
-        <div className="absolute left-0 right-0 bg-gold-accent-color h-1"></div>
-      </nav>
-    </>
+          <div className="absolute left-0 right-0 bg-gold-accent-color h-1"></div>
+        </animated.div>
+      )}
+    </nav>
   );
 };
 
