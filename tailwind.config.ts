@@ -57,9 +57,11 @@ const config: Config = {
       backgroundColor: {
         'gold-accent-color': '#C59948',
         'electric-green-500': ' #4AC97E',
+        'dark-black': 'rgba(28, 28, 62, 1)',
       },
       textColor: {
         'faded-grey': 'rgba(51, 51, 51, 0.8)',
+        'dark-black': 'rgba(28, 28, 62, 1)',
         'light-grey': 'rgba(192, 192, 192, 1)',
         'bright-gold': 'rgba(252, 236, 165, 1)',
       },

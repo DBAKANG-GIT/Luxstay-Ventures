@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
-
+import React from 'react';
 import Image from 'next/image';
 import mobileLogo from '@/public/logo/luxstay-logo-colored.svg';
 import desktopLogo from '@/public/logo/text-logo-symbol-coloured.svg';
@@ -138,7 +138,13 @@ const Navbar = () => {
               <NavLink key={link.href} href={link.href} label={link.label} />
             ))}
             <span className="text-gray-400">|</span>
-            <CustomButton href="/book" text="Book Now" />
+            <CustomButton
+              href="/book"
+              text="Book Now"
+              color="bg-gold-accent-color"
+              textColor={'text-white'}
+              hoverColor="bg-electric-green-500"
+            />
           </div>
 
           {/* Hamburger Menu Button */}
@@ -166,7 +172,14 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <CustomButton href="/book" text="Book Now" props="w-full" />
+            <CustomButton
+              href="/book"
+              text="Book Now"
+              color="bg-gold-accent-color"
+              textColor="text-white"
+              hoverColor="bg-electric-green-500"
+              props="w-full"
+            />
           </div>
           <div className="absolute left-0 right-0 bg-gold-accent-color h-1"></div>
         </animated.div>
