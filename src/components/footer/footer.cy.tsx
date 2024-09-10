@@ -1,4 +1,4 @@
-import Footer from './page';
+import Footer from './footer';
 
 describe('Footer', () => {
   beforeEach(() => {
