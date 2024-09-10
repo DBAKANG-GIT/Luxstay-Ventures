@@ -50,7 +50,7 @@ export function ResponsiveCustomCarousel() {
   }, [emblaApi]);
 
   return (
-    <div className="w-full max-w-5xl mx-auto relative h-[31rem] md:h-[calc(100vh-4rem)] overflow-hidden">
+    <div className="w-full mx-auto relative h-[31rem] md:h-[calc(100vh-4rem)] overflow-hidden">
       <div ref={emblaRef} className="h-full">
         <div className="flex h-full">
           {carouselItems.map((item, index) => (
@@ -70,11 +70,11 @@ export function ResponsiveCustomCarousel() {
       </div>
 
       {/* Fixed content overlay */}
-      <div className="absolute inset-0 flex flex-col justify-center items-start text-white p-6 md:p-12 z-20">
-        <h2 className="text-4xl md:text-6xl font-bold mb-6 md:mb-8 max-w-[10ch]">
+      <div className="absolute inset-0 flex flex-col justify-center items-start text-white p-6 md:p-12 z-20 max-w-full sm:max-w-[60ch]">
+        <h2 className="text-4xl md:text-6xl font-bold mb-6 md:mb-8 max-w-[10ch] sm:max-w-full">
           Inspired By Living
         </h2>
-        <div className="w-full space-y-4 md:space-y-0 md:space-x-4 md:flex">
+        <div className="w-full space-y-4 sm:space-y-0 sm:space-x-4 sm:flex">
           <CustomButton
             href="/about"
             text="Learn More "
@@ -95,39 +95,29 @@ export function ResponsiveCustomCarousel() {
         </div>
       </div>
 
-      <button
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full hidden md:block z-30"
-        onClick={scrollPrev}
-      >
-        &#8592;
-      </button>
-      <button
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full hidden md:block z-30"
-        onClick={scrollNext}
-      >
-        &#8594;
-      </button>
-
       {/* Bottom navigation - visible only on desktop */}
-      <div className="absolute bottom-0 left-0 right-0 bg-indigo-900 text-white p-4 hidden md:flex justify-between z-30">
-        {[1, 2, 3].map((num) => (
+      <div className="absolute bottom-0 md:left-0 xl:left-[38.75rem] right-0 bg-dark-black text-white p-4 hidden md:flex md:flex-row md:h-28 justify-between z-30">
+        {[1, 2, 3].map((num, index) => (
           <div
             key={num}
-            className={`flex-1 ${
-              currentIndex === num - 1 ? 'opacity-100' : 'opacity-50'
+            className={`flex items-center gap-4 ${
+              currentIndex === index ? 'opacity-100' : 'opacity-50'
             }`}
           >
-            <div className="text-3xl font-light">
+            <span className="text-6xl font-light text-gray-500">
               {num.toString().padStart(2, '0')}
+            </span>
+            <div className="flex flex-col">
+              <h2 className="text-xl font-semibold">Lorem ipsum</h2>
+              <p className="text-sm">
+                {num === 1
+                  ? 'Lorem Ipsum'
+                  : num === 2
+                  ? 'EVERY FRIDAY | 8PM'
+                  : 'JULY 27 | 6PM'}
+              </p>
             </div>
-            <div className="text-sm">Lorem ipsum</div>
-            <div className="text-xs">
-              {num === 1
-                ? 'Lorem Ipsum'
-                : num === 2
-                ? 'EVERY FRIDAY | 8PM'
-                : 'JULY 27 | 6PM'}
-            </div>
+            {num < 3 && <div className="h-16 w-px bg-gray-700"></div>}
           </div>
         ))}
       </div>
