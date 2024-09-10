@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import AutoplayPlugin from 'embla-carousel-autoplay';
 import Fade from 'embla-carousel-fade';
@@ -12,6 +12,7 @@ import image_1 from '@/public/images/image_card_1.jpeg';
 import image_2 from '@/public/images/image_card_2.jpeg';
 import image_3 from '@/public/images/image_card_3.jpeg';
 import image_4 from '@/public/images/image_card_4.jpeg';
+import CustomButton from '../custom-button/custom-button';
 
 const carouselItems = [
   { image: image_1, alt: 'Carousel image 1' },
@@ -22,8 +23,8 @@ const carouselItems = [
 
 export function ResponsiveCustomCarousel() {
   const [currentIndex, setCurrentIndex] = React.useState(0);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    AutoplayPlugin({ delay: 5000, stopOnInteraction: false }),
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 150 }, [
+    AutoplayPlugin({ delay: 6000, stopOnInteraction: false }),
     Fade({ active: true }),
   ]);
 
@@ -74,15 +75,23 @@ export function ResponsiveCustomCarousel() {
           Inspired By Living
         </h2>
         <div className="w-full space-y-4 md:space-y-0 md:space-x-4 md:flex">
-          <Button
-            variant="outline"
-            className="w-full md:w-auto text-white border-white hover:bg-white hover:text-black"
-          >
-            Learn More <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-          <Button className="w-full md:w-auto bg-yellow-600 hover:bg-yellow-700 text-white">
-            Book Now
-          </Button>
+          <CustomButton
+            href="/about"
+            text="Learn More "
+            color="bg-white"
+            textColor="text-dark-black"
+            hoverColor="bg-electric-green-500"
+            props="w-full"
+            icon={<ChevronRight className="h-4 w-4" />}
+          />
+          <CustomButton
+            href="/book"
+            text="Book Now"
+            color="bg-gold-accent-color"
+            textColor="text-white"
+            hoverColor="bg-electric-green-500"
+            props="w-full"
+          />
         </div>
       </div>
 

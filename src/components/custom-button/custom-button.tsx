@@ -5,20 +5,35 @@ import { Button } from '@/components/ui/button';
 type CustomButtonProps = {
   text: string;
   icon?: ReactElement;
+  color: string;
+  textColor: string;
+  hoverColor: string;
   href: string;
   props?: string;
+  variant?:
+    | 'default'
+    | 'destructive'
+    | 'outline'
+    | 'secondary'
+    | 'ghost'
+    | 'link'
+    | null;
 };
 
 export default function CustomButton({
   text,
   icon,
+  color,
+  textColor,
+  hoverColor,
   href,
   props,
+  variant,
 }: CustomButtonProps) {
   return (
     <Button
-      className={`bg-gold-accent-color text-white px-4 py-2 hover:bg-opacity-90 transition-all duration-300 ease-in-out hover:bg-electric-green-500 ${props}`}
-      variant="outline"
+      className={`${color} ${textColor} px-4 py-2 hover:${hoverColor} transition-all duration-300 ease-in-out ${props}`}
+      variant={variant || null}
     >
       <Link href={href}>
         <span className="flex items-center justify-center">
