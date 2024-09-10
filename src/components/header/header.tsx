@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
-
+import React from 'react';
 import Image from 'next/image';
 import mobileLogo from '@/public/logo/luxstay-logo-colored.svg';
 import desktopLogo from '@/public/logo/text-logo-symbol-coloured.svg';

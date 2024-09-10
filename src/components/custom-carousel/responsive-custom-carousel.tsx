@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import AutoplayPlugin from 'embla-carousel-autoplay';
@@ -23,7 +22,7 @@ const carouselItems = [
 
 export function ResponsiveCustomCarousel() {
   const [currentIndex, setCurrentIndex] = React.useState(0);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 150 }, [
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 60 }, [
     AutoplayPlugin({ delay: 6000, stopOnInteraction: false }),
     Fade({ active: true }),
   ]);
@@ -41,11 +40,11 @@ export function ResponsiveCustomCarousel() {
     };
   }, [emblaApi]);
 
-  const scrollPrev = React.useCallback(() => {
+  React.useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
   }, [emblaApi]);
 
-  const scrollNext = React.useCallback(() => {
+  React.useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
@@ -59,10 +58,8 @@ export function ResponsiveCustomCarousel() {
               <Image
                 src={item.image}
                 alt={item.alt}
-                layout="fill"
-                objectFit="cover"
                 priority={index === 0}
-                className="carousel-image"
+                className="w-full h-full object-cover"
               />
             </div>
           ))}
