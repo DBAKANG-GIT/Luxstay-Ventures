@@ -1,5 +1,15 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript", "plugin:cypress/recommended"],
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "plugin:cypress/recommended",
+    "plugin:react/jsx-runtime"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "no-unused-vars": "error",
     "no-undef": "error"

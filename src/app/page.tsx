@@ -1,4 +1,7 @@
 import { ResponsiveCustomCarousel } from '@/components/custom-carousel/responsive-custom-carousel';
+import { FeatureSection } from '@/components/features/feature-section';
+import { ResponsiveStayCard } from '@/components/responsive-stay-card';
+import WhatWeOffer from '@/components/what-we-offer/what-we-offer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -14,8 +17,9 @@ export default function Home() {
       <div>
         <div className="min-h-screen">
           <ResponsiveCustomCarousel />
-          <h1>Welcome to our website!</h1>
-          <p>This is some sample text to test your code.</p>
+          <FeatureSection />
+          <WhatWeOffer />
+          <ResponsiveStayCard />
         </div>
       </div>
     </>

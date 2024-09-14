@@ -58,12 +58,21 @@ const config: Config = {
         'gold-accent-color': '#C59948',
         'electric-green-500': ' #4AC97E',
         'dark-black': 'rgba(28, 28, 62, 1)',
+        'light-grey': 'rgba(244, 244, 244, 1)',
       },
       textColor: {
         'faded-grey': 'rgba(51, 51, 51, 0.8)',
         'dark-black': 'rgba(28, 28, 62, 1)',
         'light-grey': 'rgba(192, 192, 192, 1)',
         'bright-gold': 'rgba(252, 236, 165, 1)',
+        'grey-custom': 'rgba(78, 78, 78, 1)',
+        'custom-black': 'rgba(25, 24, 37, 1)',
+        'custom-grey': 'rgba(107, 114, 128, 1)',
+        'custom-gold': 'rgba(165, 123, 66, 1)',
+        'gold-accent-color': '#C59948',
+      },
+      borderColor: {
+        'custom-grey': 'rgba(255, 255, 255, 0.10)',
       },
       borderRadius: {
         lg: 'var(--radius)',
