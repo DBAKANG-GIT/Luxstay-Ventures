@@ -1,5 +1,4 @@
 import Footer from './footer';
-import React from 'react';
 
 describe('Footer', () => {
   beforeEach(() => {

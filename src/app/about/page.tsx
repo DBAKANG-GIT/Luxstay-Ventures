@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import React from 'react';
 
 export const metadata: Metadata = {
   title: 'About Luxstay Ventures | Leading Serviced Accommodation Experts',
