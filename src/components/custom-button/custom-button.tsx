@@ -18,6 +18,7 @@ type CustomButtonProps = {
     | 'ghost'
     | 'link'
     | null;
+  type?: 'button' | 'submit' | 'reset'; // Added type prop
 };
 
 export default function CustomButton({
@@ -29,11 +30,13 @@ export default function CustomButton({
   href,
   props,
   variant,
+  type = 'button', // Default type is 'button'
 }: CustomButtonProps) {
   return (
     <Button
       className={`${color} ${textColor} px-4 py-2 hover:${hoverColor} transition-all duration-300 ease-in-out ${props}`}
       variant={variant || null}
+      type={type} // Pass the type prop to the Button component
     >
       <Link href={href}>
         <span className="flex items-center justify-center">

@@ -12,7 +12,7 @@ describe('Navbar', () => {
 
     // Check if the navigation links are rendered
     cy.get('a').contains('Home').should('be.visible');
-    cy.get('a').contains('Our Accommodation').should('be.visible');
+    // cy.get('a').contains('Our Accommodation').should('be.visible');
     cy.get('a').contains('About').should('be.visible');
     cy.get('a').contains('Contact Us').should('be.visible');
   });

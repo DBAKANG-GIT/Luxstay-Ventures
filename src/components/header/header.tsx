@@ -99,7 +99,7 @@ const Navbar = () => {
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/accommodation', label: 'Our Accommodation' },
+    // { href: '/accommodation', label: 'Our Accommodation' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact Us' },
   ];
