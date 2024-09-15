@@ -16,6 +16,7 @@ export default function Error404() {
             alt="Astronaut"
             width={500}
             height={500}
+            placeholder="blur"
             className="mx-auto my-8 lg:my-0 transform rotate-[-42deg] scale-x-[-1]"
           />
         </div>

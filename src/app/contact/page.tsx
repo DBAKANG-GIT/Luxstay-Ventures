@@ -20,7 +20,7 @@ export default function ContactPage() {
     >
       <HeroBanner text="Contact Us" imageUrl={banner.src} />
       <div className="text-center mt-8 flex flex-col">
-        <ServiceBadge text="Get In Touch" />
+        {/* <ServiceBadge text="Get In Touch" /> */}
       </div>
       <ContactFormComponent />
 
