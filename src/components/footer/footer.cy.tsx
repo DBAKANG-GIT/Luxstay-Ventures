@@ -48,9 +48,7 @@ describe('Footer', () => {
     // cy.get('Image[alt="Facebook Icon"]').should('be.visible');
 
     // Check if the legal section is rendered
-    cy.get('p')
-      .contains('ESTATE AGENTS & PROPERTY CONSULTANTS')
-      .should('be.visible');
+    cy.get('p').contains('COMPLIANCE AND LEGAL').should('be.visible');
     // cy.get('Image[alt="ICO Logo"]').should('be.visible');
     // cy.get('Image[alt="PRS Logo"]').should('be.visible');
     cy.get('a').contains('Terms & conditions').should('be.visible');

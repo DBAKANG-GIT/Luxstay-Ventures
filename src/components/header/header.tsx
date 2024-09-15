@@ -29,16 +29,16 @@ const NavIcon: React.FC<NavIconProps> = ({ isOpen }) =>
       width="45"
       height="46"
       viewBox="0 0 45 46"
-      fill="none"
+      fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g filter="url(#filter0_b_199_21902)">
+      <g>
         <line
           x1="15.3982"
           y1="29.1083"
           x2="28.8758"
           y2="15.6306"
-          stroke="black"
+          stroke="currentColor"
           strokeWidth="1.5"
           strokeLinecap="round"
         />
@@ -47,7 +47,7 @@ const NavIcon: React.FC<NavIconProps> = ({ isOpen }) =>
           y1="15.6309"
           x2="29.9365"
           y2="29.1085"
-          stroke="black"
+          stroke="currentColor"
           strokeWidth="1.5"
           strokeLinecap="round"
         />
@@ -58,16 +58,16 @@ const NavIcon: React.FC<NavIconProps> = ({ isOpen }) =>
       width="45"
       height="46"
       viewBox="0 0 45 46"
-      fill="none"
+      fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g filter="url(#filter0_b_199_21902)">
+      <g>
         <line
           x1="13.0518"
           y1="16.4907"
           x2="32.112"
           y2="16.4907"
-          stroke="black"
+          stroke="currentColor"
           strokeWidth="1.5"
           strokeLinecap="round"
         />
@@ -76,7 +76,7 @@ const NavIcon: React.FC<NavIconProps> = ({ isOpen }) =>
           y1="22.1885"
           x2="32.112"
           y2="22.1885"
-          stroke="black"
+          stroke="currentColor"
           strokeWidth="1.5"
           strokeLinecap="round"
         />
@@ -85,7 +85,7 @@ const NavIcon: React.FC<NavIconProps> = ({ isOpen }) =>
           y1="27.8857"
           x2="32.112"
           y2="27.8857"
-          stroke="black"
+          stroke="currentColor"
           strokeWidth="1.5"
           strokeLinecap="round"
         />

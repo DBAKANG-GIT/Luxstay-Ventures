@@ -1,6 +1,6 @@
 'use client';
 import { Card, CardContent } from '@/components/ui/card';
-import CustomButton from './custom-button/custom-button';
+import CustomButton from '../custom-button/custom-button';
 import { ArrowUpRight } from 'lucide-react';
 import imageSrc from '@/public/images/staybackdrop.jpeg';
 
