@@ -1,4 +1,8 @@
+import HeroBanner from '@/components/hero-banner';
 import { Metadata } from 'next';
+import banner from '@/public/images/staybackdrop.jpeg';
+import { ServicedApartmentsComponent } from '@/components/serviced-apartments-info/serviced-apartments';
+import { ResponsiveStayCard } from '@/components/responsive-stay-card/responsive-stay-card';
 
 export const metadata: Metadata = {
   title: 'About Luxstay Ventures | Leading Serviced Accommodation Experts',
@@ -9,8 +13,9 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div>
-      <h1>About Page</h1>
-      <p>Welcome to the About page!</p>
+      <HeroBanner text="We are Luxstay ventures" imageUrl={banner.src} />
+      <ServicedApartmentsComponent />
+      <ResponsiveStayCard />
     </div>
   );
 }
