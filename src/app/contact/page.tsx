@@ -2,7 +2,6 @@ import HeroBanner from '@/components/hero-banner';
 import { Metadata } from 'next';
 import banner from '@/public/images/contact-image-hero.jpeg';
 import { ContactFormComponent } from '@/components/contact-form/contact-form';
-import ServiceBadge from '@/components/custom-servicebadge/service-badge';
 
 export const metadata: Metadata = {
   title:
@@ -19,9 +18,7 @@ export default function ContactPage() {
        md:py-12 md:pb-18 justify-center items-center content-center md:gap-12 flex-wrap"
     >
       <HeroBanner text="Contact Us" imageUrl={banner.src} />
-      <div className="text-center mt-8 flex flex-col">
-        {/* <ServiceBadge text="Get In Touch" /> */}
-      </div>
+      <div className="text-center mt-8 flex flex-col"></div>
       <ContactFormComponent />
 
       {/* Add your contact form and other components here */}
