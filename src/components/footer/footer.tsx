@@ -7,6 +7,7 @@ import InstagramIcon from '@/public/logo/instagram-logo.svg';
 import LinkedInIcon from '@/public/logo/linkedin-logo.svg';
 import IcoLogo from '@/public/logo/Ico-logo.png';
 import PrsLogo from '@/public/logo/prs-logo.png';
+import NewsletterForm from '../contact-form/newsletter-form';
 
 export default function Footer() {
   return (
@@ -67,19 +68,7 @@ export default function Footer() {
               <h3 className="text-lg font-semibold text-white">
                 Subscribe for our newsletters
               </h3>
-              <form className="flex flex-col sm:flex-row gap-2 mt-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  className="bg-white text-black px-4 py-2 rounded-md flex-grow w-full sm:w-auto"
-                />
-                <button
-                  type="submit"
-                  className="bg-[#C4A052] text-white px-6 py-2 rounded-md hover:bg-[#B38F3F] transition-colors w-full sm:w-auto"
-                >
-                  Submit
-                </button>
-              </form>
+              <NewsletterForm />
             </div>
           </div>
         </div>
