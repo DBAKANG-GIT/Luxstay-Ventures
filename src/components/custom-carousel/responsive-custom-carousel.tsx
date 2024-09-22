@@ -7,10 +7,10 @@ import useEmblaCarousel from 'embla-carousel-react';
 import AutoplayPlugin from 'embla-carousel-autoplay';
 import Fade from 'embla-carousel-fade';
 
-import image_1 from '@/public/images/image_card_1.jpeg';
-import image_2 from '@/public/images/image_card_2.jpeg';
-import image_3 from '@/public/images/image_card_3.jpeg';
-import image_4 from '@/public/images/image_card_4.jpeg';
+import image_1 from '/public/images/image_card_1.jpeg';
+import image_2 from '/public/images/image_card_2.jpeg';
+import image_3 from '/public/images/image_card_3.jpeg';
+import image_4 from '/public/images/image_card_4.jpeg';
 import CustomButton from '../custom-button/custom-button';
 
 const carouselItems = [

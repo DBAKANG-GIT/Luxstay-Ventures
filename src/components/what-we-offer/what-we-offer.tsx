@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
-import Bedroom from '@/public/images/bedroom.png';
+import Bedroom from '/public/images/bedroom.png';
 import ServiceBadge from '../custom-servicebadge/service-badge';
-import LuxstayLogo from '@/public/logo/luxstay-logo-colored.svg';
+import LuxstayLogo from '/public/logo/luxstay-logo-colored.svg';
 import CustomButton from '../custom-button/custom-button';
 const features = [
   {

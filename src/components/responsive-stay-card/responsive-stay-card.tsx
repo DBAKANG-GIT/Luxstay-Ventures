@@ -2,7 +2,7 @@
 import { Card, CardContent } from '@/components/ui/card';
 import CustomButton from '../custom-button/custom-button';
 import { ArrowUpRight } from 'lucide-react';
-import imageSrc from '@/public/images/staybackdrop.jpeg';
+import imageSrc from '/public/images/staybackdrop.jpeg';
 
 export function ResponsiveStayCard() {
   return (

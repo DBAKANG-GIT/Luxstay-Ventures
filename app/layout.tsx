@@ -4,8 +4,8 @@ import './globals.css';
 import Navbar from '@/components/header/header';
 import Footer from '@/components/footer/footer';
 import React from 'react';
-import darkLogo from '@/public/images/icon.png';
-import lightLogo from '@/public/images/icon-light.png';
+import darkLogo from '/public/images/icon.png';
+import lightLogo from '/public/images/icon-light.png';
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: '--font-plus-jakarta-sans',
   subsets: ['latin'],
