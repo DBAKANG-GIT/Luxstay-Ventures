@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 
 export function PrivacyNoticeComponent() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
