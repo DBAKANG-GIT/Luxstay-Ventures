@@ -17,6 +17,7 @@ export async function POST(request: Request) {
     const data = {
       email_address: email,
       status: 'subscribed',
+      tags: ['newsletter'],
     };
 
     const response = await fetch(
