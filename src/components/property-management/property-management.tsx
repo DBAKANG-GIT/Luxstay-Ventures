@@ -1,5 +1,5 @@
 'use client';
-
+import React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -16,11 +16,33 @@ import {
 } from 'lucide-react';
 import CustomButton from '../custom-button/custom-button';
 
+// Define a type for the valid tab keys
+type TabKey = 'landlords' | 'agents';
+
 export function PropertyManagementComponent() {
-  const [activeTab, setActiveTab] = useState('landlords');
+  const [activeTab, setActiveTab] = useState<TabKey>('landlords');
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
-  const content = {
+  const content: Record<
+    TabKey,
+    {
+      title: string;
+      description: string;
+      mainFeature: {
+        title: string;
+        description: string;
+      };
+      benefits: {
+        icon: React.ComponentType<{ className?: string }>;
+        title: string;
+        description: string;
+      }[];
+      faqs: {
+        question: string;
+        answer: string;
+      }[];
+    }
+  > = {
     landlords: {
       title: 'Guaranteed Rent – Stress-Free, Long-Term Income',
       description:
