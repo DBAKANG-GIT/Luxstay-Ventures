@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '@/public/logo/png_full-logo-coloured-and-white.png';
-import backdrop from '@/public/logo/luxstay-logo-colored.svg';
-import FacebookIcon from '@/public/logo/facebook-logo.svg';
-import InstagramIcon from '@/public/logo/instagram-logo.svg';
-import LinkedInIcon from '@/public/logo/linkedin-logo.svg';
-import IcoLogo from '@/public/logo/Ico-logo.png';
-import PrsLogo from '@/public/logo/prs-logo.png';
+import logo from '/public/logo/png_full-logo-coloured-and-white.png';
+import backdrop from '/public/logo/luxstay-logo-colored.svg';
+import FacebookIcon from '/public/logo/facebook-logo.svg';
+import InstagramIcon from '/public/logo/instagram-logo.svg';
+import LinkedInIcon from '/public/logo/linkedin-logo.svg';
+import IcoLogo from '/public/logo/Ico-logo.png';
+import PrsLogo from '/public/logo/prs-logo.png';
 import NewsletterForm from '../contact-form/newsletter-form';
 
 export default function Footer() {
@@ -132,7 +132,7 @@ export default function Footer() {
                 Terms & conditions
               </Link>
               <span className="text-gray-400">|</span>
-              <Link href="#" className="text-sm hover:underline">
+              <Link href="/privacy-notice" className="text-sm hover:underline">
                 Privacy Policy
               </Link>
             </div>

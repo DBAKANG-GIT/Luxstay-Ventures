@@ -19,10 +19,10 @@ import {
   Sparkles,
 } from 'lucide-react';
 
-import image_1 from '@/public/images/about_image_1.jpeg';
-import image_2 from '@/public/images/about_image_2.jpeg';
-import image_3 from '@/public/images/about_image_3.jpeg';
-import image_4 from '@/public/images/about_image_4.jpeg';
+import image_1 from '/public/images/about_image_1.jpeg';
+import image_2 from '/public/images/about_image_2.jpeg';
+import image_3 from '/public/images/about_image_3.jpeg';
+import image_4 from '/public/images/about_image_4.jpeg';
 
 const reasons = [
   {

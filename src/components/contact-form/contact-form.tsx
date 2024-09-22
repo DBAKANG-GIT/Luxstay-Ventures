@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import CustomButton from '../custom-button/custom-button';
-import { sendEmail } from '@/app/utils/send-email';
+import { sendEmail } from '../../../app/utils/send-email';
 
 export type FormData = {
   firstName: string;

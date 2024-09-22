@@ -7,7 +7,7 @@ export default function TermsAndConditions() {
     <div className="bg-white min-h-screen p-4 sm:p-6 lg:p-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-          Terms & Conditions
+          Luxstay Ventures Customer Terms & Conditions
         </h1>
         <p className="text-sm text-custom-gold mb-8">
           Current as of September 2024

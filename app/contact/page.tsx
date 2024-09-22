@@ -1,6 +1,6 @@
 import HeroBanner from '@/components/hero-banner';
 import { Metadata } from 'next';
-import banner from '@/public/images/contact-image-hero.jpeg';
+import banner from '/public/images/contact-image-hero.jpeg';
 import ContactFormComponent from '@/components/contact-form/contact-form';
 
 export const metadata: Metadata = {
@@ -12,11 +12,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div
-      id="page-container"
-      className="md:flex
-       md:py-12 md:pb-18 justify-center items-center content-center md:gap-12 flex-wrap"
-    >
+    <div id="page-container" className="">
       <HeroBanner text="Contact Us" imageUrl={banner.src} />
       <div className="text-center mt-8 flex flex-col"></div>
       <ContactFormComponent />

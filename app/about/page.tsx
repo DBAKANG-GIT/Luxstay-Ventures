@@ -1,6 +1,6 @@
 import HeroBanner from '@/components/hero-banner';
 import { Metadata } from 'next';
-import banner from '@/public/images/staybackdrop.jpeg';
+import banner from '/public/images/staybackdrop.jpeg';
 import { ServicedApartmentsComponent } from '@/components/serviced-apartments-info/serviced-apartments';
 import { ResponsiveStayCard } from '@/components/responsive-stay-card/responsive-stay-card';
 

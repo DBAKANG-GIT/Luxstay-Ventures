@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import man from '@/public/images/man.png';
+import man from '/public/images/man.png';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 export default function Error404() {
   return (
     <div className="min-h-screen bg-white text-[#333333] flex flex-col justify-center items-center p-4 md:p-8">
-      <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center justify-center">
+      <div className="max-w-6xl flex flex-col lg:flex-row items-center justify-center">
         <div className="lg:w-1/2 order-2 lg:order-1">
           <Image
             src={man}
