@@ -101,17 +101,38 @@ export function ResponsiveCustomCarousel() {
               currentIndex === index ? 'opacity-100' : 'opacity-50'
             }`}
           >
-            <span className="text-6xl font-light text-gray-500">
+            <span
+              className={`text-6xl font-light ${
+                currentIndex === index ? 'text-white' : 'text-gray-500'
+              }`}
+            >
               {num.toString().padStart(2, '0')}
             </span>
             <div className="flex flex-col">
-              <h2 className="text-xl font-semibold">Lorem ipsum</h2>
               <p className="text-sm">
-                {num === 1
-                  ? 'Lorem Ipsum'
-                  : num === 2
-                  ? 'EVERY FRIDAY | 8PM'
-                  : 'JULY 27 | 6PM'}
+                {num === 1 ? (
+                  <>
+                    <span className="text-xl font-semibold">Luxury Homes</span>
+                    <br />
+                    <span>Short Stay, Long Memories</span>
+                  </>
+                ) : num === 2 ? (
+                  <>
+                    <span className="text-xl font-semibold">
+                      Flexible Stays
+                    </span>
+                    <br />
+                    <span>AVAILABLE NOW | BOOK TODAY</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-xl font-semibold">
+                      Special Discounts
+                    </span>
+                    <br />
+                    <span>LIMITED TIME OFFER</span>
+                  </>
+                )}
               </p>
             </div>
             {num < 3 && <div className="h-16 w-px bg-gray-700"></div>}

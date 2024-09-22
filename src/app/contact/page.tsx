@@ -1,7 +1,7 @@
 import HeroBanner from '@/components/hero-banner';
 import { Metadata } from 'next';
 import banner from '@/public/images/contact-image-hero.jpeg';
-import { ContactFormComponent } from '@/components/contact-form/contact-form';
+import ContactFormComponent from '@/components/contact-form/contact-form';
 
 export const metadata: Metadata = {
   title:
@@ -20,8 +20,6 @@ export default function ContactPage() {
       <HeroBanner text="Contact Us" imageUrl={banner.src} />
       <div className="text-center mt-8 flex flex-col"></div>
       <ContactFormComponent />
-
-      {/* Add your contact form and other components here */}
     </div>
   );
 }
