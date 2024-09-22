@@ -1,74 +1,85 @@
 'use client';
 
 import { useState } from 'react';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
+import landlordImage from '../../../public/images/landlord.png';
+import careImage from '@public/images/room.jpeg';
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
+  ChevronDown,
+  Home,
+  DollarSign,
+  Shield,
+  Award,
+  Briefcase,
+} from 'lucide-react';
+import CustomButton from '../custom-button/custom-button';
 
 export function PropertyManagementComponent() {
   const [activeTab, setActiveTab] = useState('landlords');
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   const content = {
     landlords: {
-      title:
-        'Guaranteed Rent, No Voids – Long-Term Stability Without the Hassle',
+      title: 'Guaranteed Rent – Stress-Free, Long-Term Income',
       description:
-        "In response to the new Renters' Rights Bill, we provide landlords with long-term, guaranteed rent while removing the complexities of estate management. With our serviced accommodation model, you get guaranteed payments for 3-5 years, no voids, and zero callout costs.",
+        'With our serviced accommodation model, we guarantee your rent for 3-5 years, with no voids, no tenant issues, and zero management fees. We handle everything, ensuring your property is well maintained, while you enjoy a hassle-free, consistent income.',
       mainFeature: {
-        title: 'Comprehensive Property Care & Maintenance',
+        title: 'Complete Property Care',
         description:
-          "Our dedicated team manages your property with the highest standards, handling all maintenance and callouts so you don't have to, ensuring your investment remains in excellent condition for the long term.",
+          'We ensure that your property is kept to the highest standard, managing all aspects of cleaning, maintenance, and tenant relations, so you don’t have to lift a finger.',
       },
       benefits: [
         {
-          title: 'Guaranteed Rent for 3-5 Years',
+          icon: Home,
+          title: 'Long-Term Guaranteed Rent',
           description:
-            'Enjoy steady, guaranteed income for up to 5 years, eliminating the risk of void periods and financial uncertainty.',
+            'No need to worry about tenants or void periods. We ensure a steady income for up to 5 years with guaranteed rent, even if the property is vacant.',
         },
         {
-          title: 'No Estate Management Fees or Callouts',
+          icon: DollarSign,
+          title: 'No Hidden Costs',
           description:
-            'We cover all property management, including tenant issues and repairs, meaning you save on costly estate management fees and emergency callouts.',
+            'We take care of everything – from tenant management to property upkeep – with no extra fees. This means no surprise maintenance costs or management fees.',
         },
         {
-          title: 'Adapt to New Legislation',
+          icon: Shield,
+          title: 'Secure & Reliable',
           description:
-            "Our serviced accommodation model helps you avoid the regulatory challenges of the Renters' Rights Bill, such as eviction restrictions and rent control, offering greater control and flexibility.",
+            'We offer complete transparency and reliability with clear agreements and a professional team ensuring your property is in the best hands.',
         },
         {
-          title: 'Trusted Nationwide',
+          icon: Award,
+          title: 'Tailored to Your Needs',
           description:
-            'Join thousands of landlords who trust our services for long-term stability, high-quality care, and increased profitability.',
+            'We understand that each property is unique. Our approach is flexible and designed to fit your specific requirements, ensuring you receive the best returns with minimal hassle.',
         },
       ],
       faqs: [
         {
           question: 'How does guaranteed rent work?',
           answer:
-            'We offer guaranteed rent payments, regardless of occupancy, for 3-5 years, so you get stable income without tenant-related risks.',
+            'We offer a contract where you receive fixed rent payments for up to 5 years, regardless of occupancy. This guarantees your income without the typical risks of tenant turnover or voids.',
         },
         {
-          question: 'What services are included in the management fee?',
+          question: 'What is included in your management service?',
           answer:
-            'Our fee covers everything: tenant sourcing, rent collection, property maintenance, legal compliance, and more – without additional estate management fees or unexpected callout costs.',
+            'Our management service includes everything from sourcing tenants, property maintenance, and handling repairs, to ensuring compliance with legal regulations – all at no additional cost to you.',
         },
         {
-          question:
-            'How does serviced accommodation differ from traditional letting?',
+          question: 'Who will stay in my property?',
           answer:
-            'With serviced accommodation, you get short-term stays, but we guarantee your rent for up to 5 years, ensuring no voids, fewer regulations, and hassle-free property management.',
+            'We host professionals, contractors, and corporate clients. All guests undergo thorough checks, ensuring only trusted individuals stay in your property, while we handle all guest communication and maintenance.',
         },
         {
-          question: 'What happens if my property needs repairs?',
+          question: 'What happens if repairs are needed?',
           answer:
-            'Our team handles all maintenance and repairs, meaning you don’t have to worry about callout fees or finding contractors.',
+            'We take full responsibility for repairs and maintenance, ensuring your property is always well-maintained without you having to worry about callout charges or finding contractors.',
         },
       ],
     },
+
     agents: {
       title: 'Expand Your Portfolio with Serviced Accommodation',
       description:
@@ -80,19 +91,28 @@ export function PropertyManagementComponent() {
       },
       benefits: [
         {
+          icon: Home,
           title: 'Long-Term Guaranteed Rent for Clients',
           description:
             'Help your clients secure guaranteed income for 3-5 years, with no voids or tenancy-related uncertainties.',
         },
         {
+          icon: DollarSign,
           title: 'No Estate Management Headaches',
           description:
             'Our model eliminates estate management fees and unexpected costs, providing clients with a streamlined, profitable option.',
         },
         {
+          icon: Shield,
           title: 'Increased Revenue Opportunities',
           description:
             'Serviced accommodation properties typically offer higher yields and faster turnovers, boosting your revenue while keeping clients happy.',
+        },
+        {
+          icon: Briefcase,
+          title: 'Professional Support',
+          description:
+            'Our experienced team provides ongoing support and guidance, ensuring that your clients receive the best possible service and returns.',
         },
       ],
       faqs: [
@@ -116,88 +136,182 @@ export function PropertyManagementComponent() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="w-full fixed top-0 z-10 bg-white shadow-md">
-          <TabsTrigger value="landlords" className="w-1/2">
-            For Landlords
-          </TabsTrigger>
-          <TabsTrigger value="agents" className="w-1/2">
-            For Letting Agents
-          </TabsTrigger>
-        </TabsList>
-        {['landlords', 'agents'].map((tab) => (
-          <TabsContent key={tab} value={tab} className="mt-16">
-            <div className="bg-gray-800 text-white py-20 px-4 text-center">
-              <h1 className="text-4xl font-bold mb-4">{content[tab].title}</h1>
-              <p className="max-w-2xl mx-auto">{content[tab].description}</p>
-            </div>
+    <div className="min-h-screen bg-white">
+      <div className="relative h-[600px] lg:h-[800px]">
+        <Image
+          src={landlordImage}
+          alt="Luxury property"
+          layout="fill"
+          objectFit="cover"
+          className="brightness-50"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 px-4">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-black bg-opacity-50 p-2 rounded-lg mb-8"
+          >
+            <button
+              onClick={() => setActiveTab('landlords')}
+              className={cn(
+                'px-4 py-2 rounded-lg transition-all duration-300 text-sm md:text-base',
+                activeTab === 'landlords'
+                  ? 'bg-white text-black'
+                  : 'bg-transparent hover:bg-white/20'
+              )}
+            >
+              For Landlords
+            </button>
+            <button
+              onClick={() => setActiveTab('agents')}
+              className={cn(
+                'px-4 py-2 rounded-lg transition-all duration-300 text-sm md:text-base',
+                activeTab === 'agents'
+                  ? 'bg-white text-black'
+                  : 'bg-transparent hover:bg-white/20'
+              )}
+            >
+              For Letting Agents
+            </button>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-3xl md:text-5xl font-bold mb-4 text-center max-w-4xl"
+          >
+            {content[activeTab].title}
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-lg md:text-xl text-center max-w-2xl"
+          >
+            {content[activeTab].description}
+          </motion.p>
+        </div>
+      </div>
 
-            <div className="max-w-6xl mx-auto mt-12 px-4">
-              <div className="bg-white rounded-lg shadow-md p-6 mb-12 flex items-center">
-                <div className="flex-1">
-                  <h2 className="text-2xl font-semibold mb-2">
-                    {content[tab].mainFeature.title}
-                  </h2>
-                  <p>{content[tab].mainFeature.description}</p>
-                </div>
-                <div className="w-1/3 ml-6">
-                  <div className="bg-gray-200 h-48 rounded-lg"></div>
-                </div>
-              </div>
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col md:flex-row items-center mb-16"
+        >
+          <div className="md:w-1/2 md:pr-8 mb-8 md:mb-0">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              {content[activeTab].mainFeature.title}
+            </h2>
+            <p className="text-lg">
+              {content[activeTab].mainFeature.description}
+            </p>
+          </div>
+          <div className="md:w-1/2">
+            <Image
+              src={careImage}
+              alt="Property maintenance"
+              width={600}
+              height={400}
+              className="rounded-lg shadow-lg"
+            />
+          </div>
+        </motion.div>
 
-              <h2 className="text-2xl font-semibold mb-6">
-                {tab === 'landlords'
-                  ? 'Why partner with us?'
-                  : 'Why Work With Us?'}
-              </h2>
-              <div className="grid md:grid-cols-3 gap-6 mb-12">
-                {content[tab].benefits.map((benefit, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-lg shadow-md p-6"
-                  >
-                    <h3 className="text-xl font-semibold mb-2">
-                      {benefit.title}
-                    </h3>
-                    <p>{benefit.description}</p>
-                  </div>
-                ))}
-              </div>
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-2xl md:text-3xl font-bold mb-8 text-center"
+        >
+          Why partner with us?
+        </motion.h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          {content[activeTab].benefits.map((benefit, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
+              <benefit.icon className="w-12 h-12 text-custom-gold mb-4" />
+              <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+              <p>{benefit.description}</p>
+            </motion.div>
+          ))}
+        </div>
 
-              <h2 className="text-2xl font-semibold mb-6">
-                Frequently asked questions
-              </h2>
-              <div className="bg-white rounded-lg shadow-md p-6 mb-12">
-                <Accordion type="single" collapsible>
-                  {content[tab].faqs.map((faq, index) => (
-                    <AccordionItem key={index} value={`item-${index}`}>
-                      <AccordionTrigger>{faq.question}</AccordionTrigger>
-                      <AccordionContent>{faq.answer}</AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-2xl md:text-3xl font-bold mb-8 text-center"
+        >
+          Frequently asked questions
+        </motion.h2>
+        <div className="space-y-6 mb-16">
+          {content[activeTab].faqs.map((faq, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-gray-100 rounded-lg shadow-md overflow-hidden"
+            >
+              <button
+                onClick={() => setActiveFaq(activeFaq === index ? null : index)}
+                className="flex justify-between items-center w-full p-6 text-left"
+              >
+                <h3 className="text-xl font-semibold">{faq.question}</h3>
+                <ChevronDown
+                  className={cn(
+                    'w-6 h-6 transition-transform duration-300',
+                    activeFaq === index ? 'transform rotate-180' : ''
+                  )}
+                />
+              </button>
+              <div
+                className={cn(
+                  'overflow-hidden transition-all duration-300',
+                  activeFaq === index ? 'max-h-96 p-6 pt-0' : 'max-h-0'
+                )}
+              >
+                <p>{faq.answer}</p>
               </div>
+            </motion.div>
+          ))}
+        </div>
 
-              <div className="bg-gray-200 rounded-lg p-8 text-center">
-                <h2 className="text-2xl font-semibold mb-4">
-                  {tab === 'landlords'
-                    ? 'Still have questions?'
-                    : 'Partner With Us'}
-                </h2>
-                <p className="mb-4">
-                  {tab === 'landlords'
-                    ? 'Get in touch with our team to learn more about our services and how we can help you.'
-                    : "Interested in working with us? Let's discuss how we can grow together."}
-                </p>
-                <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                  {tab === 'landlords' ? 'Contact Us' : 'Get Started'}
-                </button>
-              </div>
-            </div>
-          </TabsContent>
-        ))}
-      </Tabs>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="bg-lighter-grey text-[#333] p-8 rounded-lg text-center shadow-xl"
+        >
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            {activeTab === 'landlords'
+              ? 'Ready to secure your rental income?'
+              : 'Ready to expand your portfolio?'}
+          </h2>
+          <p className="mb-6 text-sm sm:text-base text-[#6C6C6C]">
+            {activeTab === 'landlords'
+              ? 'Get in touch with our team to learn how we can provide you with guaranteed rent and hassle-free property management.'
+              : "Let's discuss how serviced accommodation can boost your agency's offerings and revenue."}
+          </p>
+
+          <CustomButton
+            href="/contact"
+            text={activeTab === 'landlords' ? 'Get Started' : 'Partner With Us'}
+            color="bg-gold-accent-color"
+            textColor="text-white"
+            hoverColor="bg-electric-green-500"
+            props="shadow-md hover:shadow-lg"
+          />
+        </motion.div>
+      </div>
     </div>
   );
 }
