@@ -125,7 +125,10 @@ export default function Footer() {
 
           <div className="flex flex-col sm:flex-row justify-between items-center w-full">
             <div className="flex space-x-4">
-              <Link href="#" className="text-sm hover:underline">
+              <Link
+                href="/terms-and-conditions"
+                className="text-sm hover:underline"
+              >
                 Terms & conditions
               </Link>
               <span className="text-gray-400">|</span>
