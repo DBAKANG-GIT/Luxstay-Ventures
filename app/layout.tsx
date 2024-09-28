@@ -6,6 +6,9 @@ import Footer from '@/components/footer/footer';
 import React from 'react';
 import darkLogo from '/public/images/icon.png';
 import lightLogo from '/public/images/icon-light.png';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: '--font-plus-jakarta-sans',
   subsets: ['latin'],
@@ -45,7 +48,11 @@ export default function RootLayout({
         <header>
           <Navbar />
         </header>
-        <main>{children}</main>
+        <main>
+          {children}
+          <Analytics />
+          <SpeedInsights />
+        </main>
         <footer>
           <Footer />
         </footer>
