@@ -13,5 +13,8 @@
   "rules": {
     "no-unused-vars": "error",
     "no-undef": "error"
+  },
+  "globals": {
+    "NodeJS": true
   }
 }
