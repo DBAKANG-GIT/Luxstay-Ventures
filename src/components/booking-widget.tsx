@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useRef } from 'react';
 import { Card } from '@/components/ui/card';
 
@@ -5,20 +6,22 @@ interface BookingWidgetProps {
   isSticky?: boolean;
 }
 
+interface UplistingSearchWidgetConfig {
+  baseUrl: string;
+  showLocation: boolean;
+  locationText: string;
+  locations: string[];
+  color: string;
+  insertAt: string;
+  guestsMin: number;
+  guestsMax: number;
+  textColor: string;
+  backgroundColor: string;
+  buttonText: string;
+}
+
 interface UplistingSearchWidget {
-  init: (config: {
-    baseUrl: string;
-    showLocation: boolean;
-    locationText: string;
-    locations: string[];
-    color: string;
-    insertAt: string;
-    guestsMin: number;
-    guestsMax: number;
-    textColor: string;
-    backgroundColor: string;
-    buttonText: string;
-  }) => void;
+  init: (config: UplistingSearchWidgetConfig) => void;
 }
 
 declare global {
@@ -44,7 +47,7 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ isSticky = false }) => {
 
       script.onload = () => {
         if (window.uplistingSearchWidget) {
-          window.uplistingSearchWidget.init({
+          const config: UplistingSearchWidgetConfig = {
             baseUrl: 'https://book.luxstayventures.com/',
             showLocation: false,
             locationText: 'All cities',
@@ -56,13 +59,14 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ isSticky = false }) => {
             textColor: '#fff',
             backgroundColor: '#C59948',
             buttonText: 'Search',
-          });
+          };
+          window.uplistingSearchWidget.init(config);
         }
       };
     } else {
       // Initialize the widget if the script is already present
       if (window.uplistingSearchWidget) {
-        window.uplistingSearchWidget.init({
+        const config: UplistingSearchWidgetConfig = {
           baseUrl: 'https://book.luxstayventures.com/',
           showLocation: false,
           locationText: 'All cities',
@@ -74,7 +78,8 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ isSticky = false }) => {
           textColor: '#fff',
           backgroundColor: '#C59948',
           buttonText: 'Search',
-        });
+        };
+        window.uplistingSearchWidget.init(config);
       }
     }
   }, []);
