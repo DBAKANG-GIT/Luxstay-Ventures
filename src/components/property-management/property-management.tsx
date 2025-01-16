@@ -15,6 +15,7 @@ import {
   Briefcase,
 } from 'lucide-react';
 import CustomButton from '../custom-button/custom-button';
+import useNavigateWithSpinner from '@/hook/use-navigate-with-spinner';
 
 // Define a type for the valid tab keys
 type TabKey = 'landlords' | 'agents';
@@ -156,6 +157,7 @@ export function PropertyManagementComponent() {
       ],
     },
   };
+  const { isLoading, navigate } = useNavigateWithSpinner();
 
   return (
     <div className="min-h-screen bg-white">
@@ -331,6 +333,8 @@ export function PropertyManagementComponent() {
             textColor="text-white"
             hoverColor="bg-electric-green-500"
             props="shadow-md hover:shadow-lg"
+            isLoading={isLoading}
+            onClick={() => navigate('/contact')}
           />
         </motion.div>
       </div>

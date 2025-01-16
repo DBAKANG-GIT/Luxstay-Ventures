@@ -45,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${plusJakartaSans.variable} antialiased`}>
-        <header>
+        <header className="sticky top-0 z-50">
           <Navbar />
         </header>
         <main>

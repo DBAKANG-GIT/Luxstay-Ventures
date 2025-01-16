@@ -33,7 +33,7 @@ export default function TermsAndConditions() {
               2.1. The managing agent permit the client to occupy the property,
               such occupation being by the guest personally only and to use the
               owners&quot; furniture and effects for the accommodation period.
-              All visitors to the apartment are the responsibility of the guest.
+              All visitors to the property are the responsibility of the guest.
             </p>
             <p>
               2.2. You must be 18 years or over when you book your
@@ -60,10 +60,10 @@ export default function TermsAndConditions() {
               this may not always be possible.
             </p>
             <p>
-              2.6. If the number of people permitted to occupy an apartment is
+              2.6. If the number of people permitted to occupy a property is
               exceeded (which would be in breach of Health and Safety
               Regulations) we reserve the right to move excess occupants and
-              charge for additional apartments or require the excess occupants
+              charge for additional properties or require the excess occupants
               to vacate the property.
             </p>
             <p>
@@ -132,16 +132,16 @@ export default function TermsAndConditions() {
               within this period with an itemized list of charges.
             </p>
             <p>
-              3.1.5. We expect the apartment to be left in a reasonable state on
+              3.1.5. We expect the property to be left in a reasonable state on
               departure. If, at our discretion, additional cleaning is required
               on departure, the cost of this cleaning will be charged as an
               additional charge.
             </p>
             <p>
               3.1.6. From the 1st July 2007 the UK legislation provides that
-              smoking is not permitted in serviced apartments. Smokers must
+              smoking is not permitted in serviced properties. Smokers must
               vacate the building should they wish to smoke. Smoking is
-              prohibited within the apartment. Guests caught smoking inside the
+              prohibited within the property. Guests caught smoking inside the
               property will incur a £200 charge for specialist cleaning.
               However, smoking is permitted in designated outdoor areas such as
               balconies or garden spaces, provided it does not cause a nuisance
@@ -149,7 +149,7 @@ export default function TermsAndConditions() {
             </p>
             <p>
               3.1.7. Where there is evidence of guests smoking within the
-              apartment, we reserve the right to charge £200 for specialist
+              property, we reserve the right to charge £200 for specialist
               cleaning.
             </p>
             <p>
@@ -178,7 +178,7 @@ export default function TermsAndConditions() {
               may be made for service animals, provided the appropriate
               documentation is submitted at the time of booking. Any damage
               caused by service animals will be the responsibility of the guest.
-              NO smoking within the apartment. The renter is not evicted by the
+              NO smoking within the property. The renter is not evicted by the
               owner (or representative of the owner) or the local law
               enforcement.
             </p>
@@ -260,7 +260,7 @@ export default function TermsAndConditions() {
               must use the appropriate adaptor. Non-UK plugs used without the
               appropriate adaptor/transformer are a serious fire risk. Please
               ensure that all heated appliances are switched off and stored
-              safely before leaving the apartment. Guests found to be in breach
+              safely before leaving the property. Guests found to be in breach
               of this rule may be asked to leave with immediate effect.
             </p>
             <p>
@@ -275,7 +275,7 @@ export default function TermsAndConditions() {
               sight.
             </p>
             <p>
-              5.5. Property left in the apartment will be kept for 1 week after
+              5.5. Property left in the property will be kept for 1 week after
               departure or forwarded at the guest&quot;s expense.
             </p>
           </Section>
@@ -309,7 +309,7 @@ export default function TermsAndConditions() {
           <Section title="7. Services">
             <p>
               7.1. We cannot be held responsible for any failure or interruption
-              to services to the apartment, for example, gas, water and
+              to services to the property, for example, gas, water and
               electricity, or for any damage, disturbance or noise caused as a
               result of maintenance work being carried out in any part of the
               building.
@@ -326,7 +326,7 @@ export default function TermsAndConditions() {
           <Section title="8. Wireless Broadband Internet and Hardwire">
             <p>
               Wireless Broadband Internet is usually available at our
-              apartments, however, the owners and managing agent will not be
+              properties, however, the owners and managing agent will not be
               liable for loss of this service due to connection, environmental
               or human error and no support service is available. For this
               reason, wireless broadband internet is not a contractual
@@ -404,13 +404,13 @@ export default function TermsAndConditions() {
               9.1.13. Not leave the entrance door or windows to the property
               open but to ensure that all door and window locks are properly
               engaged at all times. All windows must be closed when not in the
-              apartment or during bad weather.
+              property or during bad weather.
             </p>
             <p>
               9.1.14. To take all reasonable precautions to prevent condensation
               by keeping the Property adequately ventilated and heated.
               Extractor fans located in the bathrooms and en-suites must be
-              switched on at all times to prevent damage to the apartment.
+              switched on at all times to prevent damage to the property.
             </p>
             <p>
               9.1.15. Not change any lock to the property or have any duplicate
@@ -439,7 +439,7 @@ export default function TermsAndConditions() {
             </p>
             <p>
               9.1.20. Not to play ball games inside or within the grounds of the
-              apartment.
+              property.
             </p>
             <p>
               9.1.21. To ensure that the number of people occupying the property
@@ -454,7 +454,7 @@ export default function TermsAndConditions() {
             </p>
             <p>
               9.1.23. Not to install any portable cooking appliances, camping
-              stoves or similar items in the apartment.
+              stoves or similar items in the property.
             </p>
           </Section>
 
@@ -507,12 +507,12 @@ export default function TermsAndConditions() {
               contract and the guest being asked to leave.
             </p>
             <p>
-              12.2. Guests should keep the apartment free of hazardous objects
-              at all times and not to leave it in a condition that would make it
+              12.2. Guests should keep the property free of hazardous objects at
+              all times and not to leave it in a condition that would make it
               unsafe for our housekeepers, staff, guests or themselves to use.
             </p>
             <p>
-              12.3. By making a booking and staying in one of our apartments you
+              12.3. By making a booking and staying in one of our properties you
               agree to abide by these terms and conditions.
             </p>
           </Section>
@@ -555,7 +555,7 @@ export default function TermsAndConditions() {
             </p>
             <p>
               14.3. You can also complain to the booking agent you used for your
-              apartment reservation.
+              property reservation.
             </p>
           </Section>
 
@@ -581,7 +581,7 @@ export default function TermsAndConditions() {
             </p>
             <p>
               &quot;Managing agent&quot; &quot;Us&quot; or &quot;We&quot; refers
-              to Luxstay Ventures Limited offering serviced apartments on behalf
+              to Luxstay Ventures Limited offering serviced properties on behalf
               of the property owners.
             </p>
             <p>
@@ -595,22 +595,22 @@ export default function TermsAndConditions() {
             </p>
             <p>&quot;Agreement&quot; means this agreement;</p>
             <p>
-              &quot;Apartment or property&quot; – is an accommodation managed by
+              &quot;House or property&quot; – is an accommodation managed by
               Luxstay Ventures Limited on behalf of the owner(s)
             </p>
             <p>
               &quot;Booking&quot; means an offer from you to us to hire one of
-              our apartments on the terms of this agreement following your
+              our properties on the terms of this agreement following your
               provision of sufficient information to enable us to complete our
               telephone or Website provisional booking process.
             </p>
             <p>
-              &quot;Fee&quot; is the rental for the apartment and inclusive
+              &quot;Fee&quot; is the rental for the property and inclusive
               services which is payable in advance.
             </p>
             <p>
               &quot;Furniture and Appliances&quot; means such furniture and
-              appliances usually found within the apartment and any other items,
+              appliances usually found within the property and any other items,
               which we agree to provide;
             </p>
             <p>
@@ -619,8 +619,8 @@ export default function TermsAndConditions() {
               gas, water, sewerage, council tax, TV license.
             </p>
             <p>
-              The term &quot;Serviced Apartment&quot; means the following: – A
-              fully furnished and equipped apartment, accessed by corridors,
+              The term &quot;Serviced Property&quot; means the following: – A
+              fully furnished and equipped property, accessed by corridors,
               stairwells and any common part of the building, inclusive of gas,
               electricity, water, drainage and sewerage, Council Tax, TV
               license, a once per week cleaning and linen service.

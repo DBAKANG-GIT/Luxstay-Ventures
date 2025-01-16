@@ -8,6 +8,8 @@ import LinkedInIcon from '/public/logo/linkedin-logo.svg';
 import IcoLogo from '/public/logo/Ico-logo.png';
 import PrsLogo from '/public/logo/prs-logo.png';
 import NewsletterForm from '../contact-form/newsletter-form';
+import { ScrollToTop } from '../scroll-to-top/scroll-to-top';
+import { WhatsAppButton } from '../whatsapp-buttton/whatsapp-button';
 
 export default function Footer() {
   return (
@@ -36,7 +38,7 @@ export default function Footer() {
               Everything we do, we believe will enhance your living experience.
               We believe you should have the comfort of your home wherever you
               go. The way we do this is by replicating a modern home in all our
-              apartments - new, clean, and fully furnished with everything you
+              property - new, clean, and fully furnished with everything you
               could possibly need. Come live with us!
             </p>
             <Link href="/about" className="text-[#C4A052] hover:underline">
@@ -137,11 +139,13 @@ export default function Footer() {
               </Link>
             </div>
             <p className="text-sm text-bright-gold mt-4 sm:mt-0">
-              &copy; 2024 Luxstay Ventures All rights reserved
+              &copy; 2025 Luxstay Ventures All rights reserved
             </p>
           </div>
         </div>
       </div>
+      <WhatsAppButton />
+      <ScrollToTop />
     </footer>
   );
 }

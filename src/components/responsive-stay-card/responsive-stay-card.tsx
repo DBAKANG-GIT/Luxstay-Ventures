@@ -3,8 +3,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import CustomButton from '../custom-button/custom-button';
 import { ArrowUpRight } from 'lucide-react';
 import imageSrc from '/public/images/staybackdrop.jpeg';
-
+import useNavigateWithSpinner from '@/hook/use-navigate-with-spinner';
 export function ResponsiveStayCard() {
+  const { isLoading, navigate } = useNavigateWithSpinner();
   return (
     <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden">
       <div
@@ -32,6 +33,8 @@ export function ResponsiveStayCard() {
                 hoverColor="hover:bg-[#B48838]"
                 color="bg-[#C59948]"
                 icon={<ArrowUpRight />}
+                isLoading={isLoading}
+                onClick={() => navigate('/about')}
               />
             </div>
           </CardContent>
