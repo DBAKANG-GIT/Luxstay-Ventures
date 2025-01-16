@@ -1,89 +1,44 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 
 interface BookingWidgetProps {
   isSticky?: boolean;
 }
 
-interface UplistingSearchWidgetConfig {
-  baseUrl: string;
-  showLocation: boolean;
-  locationText: string;
-  locations: string[];
-  color: string;
-  insertAt: string;
-  guestsMin: number;
-  guestsMax: number;
-  textColor: string;
-  backgroundColor: string;
-  buttonText: string;
-}
-
-interface UplistingSearchWidget {
-  init: (config: UplistingSearchWidgetConfig) => void;
-}
-
-declare global {
-  interface Window {
-    uplistingSearchWidget: UplistingSearchWidget;
-  }
-}
-
 const BookingWidget: React.FC<BookingWidgetProps> = ({ isSticky = false }) => {
-  const widgetRef = useRef<HTMLDivElement>(null);
+  // Determine if the viewport is mobile or not
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const scriptId = 'uplisting-widget-script';
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024); // <1024 = mobile/tablet
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
 
-    // Check if the script is already added
-    if (!document.getElementById(scriptId)) {
-      const script = document.createElement('script');
-      script.id = scriptId;
-      script.src =
-        'https://d2n64sniz4ei2k.cloudfront.net/property-search-795f5869.js';
-      script.async = true;
-      document.body.appendChild(script);
-
-      script.onload = () => {
-        if (window.uplistingSearchWidget) {
-          const config: UplistingSearchWidgetConfig = {
-            baseUrl: 'https://book.luxstayventures.com/',
-            showLocation: false,
-            locationText: 'All cities',
-            locations: ['Hertfordshire'],
-            color: '#C59948',
-            insertAt: `#${widgetRef.current?.id}`,
-            guestsMin: 1,
-            guestsMax: 5,
-            textColor: '#fff',
-            backgroundColor: '#C59948',
-            buttonText: 'Search',
-          };
-          window.uplistingSearchWidget.init(config);
-        }
-      };
-    } else {
-      // Initialize the widget if the script is already present
-      if (window.uplistingSearchWidget) {
-        const config: UplistingSearchWidgetConfig = {
-          baseUrl: 'https://book.luxstayventures.com/',
-          showLocation: false,
-          locationText: 'All cities',
-          locations: ['Hertfordshire'],
-          color: '#C59948',
-          insertAt: `#${widgetRef.current?.id}`,
-          guestsMin: 1,
-          guestsMax: 5,
-          textColor: '#fff',
-          backgroundColor: '#C59948',
-          buttonText: 'Search',
-        };
-        window.uplistingSearchWidget.init(config);
-      }
-    }
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // If on mobile, render a fixed bottom bar
+  if (isMobile) {
+    return (
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-[#C59948] p-4 z-50 shadow-xl flex items-center justify-between">
+        <h3 className="text-base font-semibold text-[#C59948]">
+          Check Availability
+        </h3>
+        <a
+          href="https://book.luxstayventures.com/listings?city=Brighton+and+Hove"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-4 py-2 rounded bg-[#C59948] text-white hover:bg-[#b18b3b] text-sm font-medium"
+        >
+          Book Now
+        </a>
+      </div>
+    );
+  }
+
+  // Otherwise (desktop), render the “sticky” card
   return (
     <Card
       className={`p-4 border-[#C59948] border-2 ${
@@ -93,10 +48,16 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ isSticky = false }) => {
       <h3 className="text-lg font-semibold mb-4 text-center">
         Check Availability
       </h3>
-      <div
-        id={`uplisting-widget-${isSticky ? 'sticky' : 'normal'}`}
-        ref={widgetRef}
-      ></div>
+      <div className="text-center">
+        <a
+          href="https://book.luxstayventures.com/listings?city=Brighton+and+Hove"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-4 py-2 rounded bg-[#C59948] text-white hover:bg-[#b18b3b]"
+        >
+          Book Now
+        </a>
+      </div>
     </Card>
   );
 };

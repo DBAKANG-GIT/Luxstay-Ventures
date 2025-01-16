@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     icon: [
       {
         type: 'image/png',
-        media: '(prefers-color-scheme: light)',
+        media: '(prefers-color-scheme: dark)',
         url: lightLogo.src,
         href: lightLogo.src,
       },
       {
         type: 'image/png',
-        media: '(prefers-color-scheme: dark)',
+        media: '(prefers-color-scheme: light)',
         url: darkLogo.src,
         href: darkLogo.src,
       },

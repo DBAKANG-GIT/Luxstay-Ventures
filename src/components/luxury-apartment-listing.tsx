@@ -8,7 +8,6 @@ import ImageGallery from './image-gallery';
 import BookingWidget from './booking-widget';
 import Details from './details';
 import Amenities from './amenities';
-import Reviews from './reviews';
 import ThingsToKnow from './things-to-know';
 import GoogleMap from './google-map';
 
@@ -51,8 +50,8 @@ const LuxuryApartmentListing: React.FC = () => {
             <div className="w-full lg:w-2/3 space-y-8">
               <div>
                 <h1 className="text-3xl font-bold mb-2">
-                  Enchanted Watford Escape - Sleeps 4, Ideal for Families,
-                  Contractors & Business Travelers, Free Parking
+                  Enchanted Watford Escape - 5, Ideal for Families, Contractors
+                  & Business Travelers, Free Parking
                 </h1>
                 <div className="flex items-center justify-between flex-wrap gap-2">
                   <div className="flex items-center space-x-2">
@@ -64,7 +63,7 @@ const LuxuryApartmentListing: React.FC = () => {
                       <Star fill="currentColor" />
                     </div>
                     <span className="text-sm text-gray-600">
-                      4.9 (128 reviews)
+                      5.0 (Multiple reviews on Airbnb and Booking.com)
                     </span>
                     <span className="text-sm text-gray-600">•</span>
                     <span className="text-sm text-gray-600 flex items-center">
@@ -87,7 +86,7 @@ const LuxuryApartmentListing: React.FC = () => {
               <ImageGallery />
               <Details />
               <Amenities />
-              <Reviews />
+
               <ThingsToKnow />
             </div>
             <div className="w-full lg:w-1/3 space-y-4">

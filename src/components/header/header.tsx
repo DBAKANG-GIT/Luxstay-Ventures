@@ -183,6 +183,8 @@ const Navbar = () => {
               textColor="text-white"
               hoverColor="bg-electric-green-500"
               props="w-full"
+              isLoading={isLoading}
+              onClick={() => navigate('/book')}
             />
           </div>
           <div className="absolute left-0 right-0 bg-gold-accent-color h-1"></div>
