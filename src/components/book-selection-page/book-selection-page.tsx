@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { Card } from '@/components/ui/card';
 import Image from 'next/image';
 import WatfordHero from '/public/images/webp/1.webp';
-import BrightonHero from '/public/images/brighton-pictures/hero.jpg';
+import BrightonHero from '/public/images/brighton-pictures/hero1.jpg';
 import CustomButton from '../custom-button/custom-button';
 
 const properties = [
