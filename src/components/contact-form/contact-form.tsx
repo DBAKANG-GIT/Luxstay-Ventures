@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
@@ -21,7 +21,10 @@ const ContactFormComponent: FC = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<FormData>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   async function onSubmit(data: FormData) {
     if (!data.agreePolicy) {
@@ -29,7 +32,16 @@ const ContactFormComponent: FC = () => {
       return;
     }
 
-    sendEmail(data);
+    setIsLoading(true);
+    try {
+      await sendEmail(data);
+      setIsSubmitted(true);
+      reset(); // Reset the form after successful submission
+    } catch (error) {
+      console.error('Failed to send email:', error);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -165,7 +177,7 @@ const ContactFormComponent: FC = () => {
             <CustomButton
               href=""
               type="submit"
-              text="Submit"
+              text={isLoading ? 'Submitting...' : 'Submit'}
               props="bg-[#C59948] w-full text-white px-6"
               textColor="text-white"
               hoverColor="hover:bg-[#B48838]"
@@ -173,6 +185,11 @@ const ContactFormComponent: FC = () => {
               icon={<ArrowUpRight />}
             />
           </div>
+          {isSubmitted && (
+            <div className="mt-4 text-green-500">
+              Thank you for your message! We will get back to you soon.
+            </div>
+          )}
         </div>
       </div>
     </form>

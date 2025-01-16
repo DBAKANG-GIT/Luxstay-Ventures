@@ -1,7 +1,6 @@
-import LuxuryApartmentListing from '@/components/luxury-apartment-listing';
-
-const ApartmentPage = () => {
-  return <LuxuryApartmentListing />;
+import BookSelectionPage from '@/components/book-selection-page/book-selection-page';
+const BookSelection = () => {
+  return <BookSelectionPage />;
 };
 
-export default ApartmentPage;
+export default BookSelection;

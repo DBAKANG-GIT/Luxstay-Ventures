@@ -5,7 +5,7 @@ describe('FeatureSection Component', () => {
     cy.mount(<FeatureSection />);
 
     // Check if the main title is rendered
-    cy.contains('Our Serviced Apartments').should('be.visible');
+    cy.contains('Our Serviced Properties').should('be.visible');
 
     // Check if the description is rendered
     cy.contains(

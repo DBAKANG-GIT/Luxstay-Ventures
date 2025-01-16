@@ -1,21 +1,23 @@
+'use client';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import Bedroom from '/public/images/bedroom.png';
 import ServiceBadge from '../custom-servicebadge/service-badge';
 import LuxstayLogo from '/public/logo/luxstay-logo-colored.svg';
 import CustomButton from '../custom-button/custom-button';
+import useNavigateWithSpinner from '@/hook/use-navigate-with-spinner';
 const features = [
   {
     number: '01',
     title: 'Affordable Prices',
     description:
-      'Our apartments are very competitively priced when compared to nearby hotels.',
+      'Our properties are very competitively priced when compared to nearby hotels.',
   },
   {
     number: '02',
     title: 'House Keeping',
     description:
-      'Our apartments are cleaned once a week and are accompanied with hotel-grade linens & towels for your stay.',
+      'Our properties are cleaned once a week and are accompanied with hotel-grade linens & towels for your stay.',
   },
   {
     number: '03',
@@ -27,13 +29,13 @@ const features = [
     number: '04',
     title: 'Prime Locations',
     description:
-      'Our apartments are in central locations or near major transport links for convenience.',
+      'Our properties are in central locations or near major transport links for convenience.',
   },
   {
     number: '05',
     title: 'Fully Furnished',
     description:
-      'Our apartments are complete with everything you would need in your own home.',
+      'Our properties are complete with everything you would need in your own home.',
   },
   {
     number: '06',
@@ -44,6 +46,8 @@ const features = [
 ];
 
 export default function WhatWeOffer() {
+  const { isLoading, navigate } = useNavigateWithSpinner();
+
   return (
     <div className="container mx-auto px-4 py-16">
       <div className="text-center mb-8">
@@ -99,6 +103,8 @@ export default function WhatWeOffer() {
                 hoverColor="bg-electric-green-500"
                 props="w-full mt-4"
                 icon={<ArrowUpRight />}
+                isLoading={isLoading}
+                onClick={() => navigate('/about')}
               />
             </div>
           </div>

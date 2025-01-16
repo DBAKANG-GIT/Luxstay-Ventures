@@ -32,7 +32,7 @@ export function FeatureSection() {
         <div className="text-center mb-8 md:mb-12">
           <ServiceBadge text="Our Services" />
           <h2 className="text-3xl text-custom-black md:text-4xl lg:text-5xl font-bold mb-4">
-            Our Serviced Apartments
+            Our Serviced Properties
           </h2>
           <p className="text-custom-grey max-w-3xl mx-auto">
             Fully-furnished, self-catering accommodations for corporate housing,

@@ -54,7 +54,7 @@ describe('Footer', () => {
     cy.get('a').contains('Terms & conditions').should('be.visible');
     cy.get('a').contains('Privacy Policy').should('be.visible');
     cy.get('p')
-      .contains('2024 Luxstay Ventures All rights reserved')
+      .contains('2025 Luxstay Ventures All rights reserved')
       .should('be.visible');
   });
 });

@@ -7,6 +7,7 @@ import mobileLogo from '/public/logo/luxstay-logo-colored.svg';
 import desktopLogo from '/public/logo/text-logo-symbol-coloured.svg';
 import Link from 'next/link';
 import CustomButton from '../custom-button/custom-button';
+import useNavigateWithSpinner from '@/hook/use-navigate-with-spinner';
 
 type NavLinkProps = {
   href: string;
@@ -94,6 +95,7 @@ const NavIcon: React.FC<NavIconProps> = ({ isOpen }) =>
   );
 
 const Navbar = () => {
+  const { isLoading, navigate } = useNavigateWithSpinner();
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -144,6 +146,8 @@ const Navbar = () => {
               color="bg-gold-accent-color"
               textColor={'text-white'}
               hoverColor="bg-electric-green-500"
+              isLoading={isLoading}
+              onClick={() => navigate('/book')}
             />
           </div>
 
