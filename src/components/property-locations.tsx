@@ -15,7 +15,7 @@ import AutoplayPlugin from 'embla-carousel-autoplay';
 import Fade from 'embla-carousel-fade';
 
 export default function PropertyLocations() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [, setCurrentIndex] = useState(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 60 }, [
     AutoplayPlugin({ delay: 6000, stopOnInteraction: false }),
     Fade({ active: true }),

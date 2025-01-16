@@ -1,6 +1,4 @@
-// custom-button.tsx
 import { ReactElement, MouseEventHandler } from 'react';
-import { useRouter } from 'next/navigation'; // or next/router in Next.js <13.4
 import { Button } from '@/components/ui/button';
 
 type CustomButtonProps = {
@@ -35,7 +33,6 @@ export default function CustomButton({
   type = 'button',
   isLoading = false,
   onClick,
-  href,
 }: CustomButtonProps) {
   return (
     <Button
