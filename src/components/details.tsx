@@ -21,7 +21,7 @@ const Details: React.FC = () => (
         Free Parking
       </span>
       <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">
-        4 Guests
+        5 Guests
       </span>
     </div>
     <p className="text-gray-600">

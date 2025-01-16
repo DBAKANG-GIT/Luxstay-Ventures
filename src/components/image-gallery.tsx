@@ -112,7 +112,7 @@ const ImageGallery: React.FC = () => {
       <Button
         variant="ghost"
         size="icon"
-        className="absolute bottom-4 right-4 text-white bg-black/20 hover:bg-black/40 rounded-full"
+        className="absolute bottom-4 right-4 z-10 text-white bg-black/20 hover:bg-black/40 rounded-full"
         onClick={togglePlayPause}
       >
         {isPlaying ? (

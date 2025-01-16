@@ -23,7 +23,7 @@ export default function PropertyPage({
       //
       // For example:
       redirect(
-        '/https://book.luxstayventures.com/listings?city=Brighton+and+Hove'
+        'https://book.luxstayventures.com/listings?city=Brighton+and+Hove'
       ); // or an external link
 
     default:
