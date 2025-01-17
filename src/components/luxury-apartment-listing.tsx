@@ -10,9 +10,15 @@ import Details from './details';
 import Amenities from './amenities';
 import ThingsToKnow from './things-to-know';
 import GoogleMap from './google-map';
+import { Property } from '@/data/properties';
 
-const LuxuryApartmentListing: React.FC = () => {
+interface PropertyListingProps {
+  data: Property;
+}
+
+const PropertyListing: React.FC<PropertyListingProps> = ({ data }) => {
   const [isDesktop, setIsDesktop] = useState<boolean>(false);
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
   useEffect(() => {
     const checkIsDesktop = () => {
@@ -23,21 +29,17 @@ const LuxuryApartmentListing: React.FC = () => {
     return () => window.removeEventListener('resize', checkIsDesktop);
   }, []);
 
-  const mapCenter = { lat: 51.64614, lng: -0.3827 }; // Coordinates for Watford
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-
   const handleShare = () => {
     if (navigator.share) {
       navigator
         .share({
-          title: 'Enchanted Watford Escape',
-          text: 'Check out this amazing apartment in Watford!',
+          title: data.title,
+          text: data.description,
           url: window.location.href,
         })
         .then(() => console.log('Successful share'))
         .catch((error) => console.log('Error sharing', error));
     } else {
-      // Fallback for browsers that do not support the Web Share API
       alert('Web Share API is not supported in your browser.');
     }
   };
@@ -49,26 +51,23 @@ const LuxuryApartmentListing: React.FC = () => {
           <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
             <div className="w-full lg:w-2/3 space-y-8">
               <div>
-                <h1 className="text-3xl font-bold mb-2">
-                  Enchanted Watford Escape - 5, Ideal for Families, Contractors
-                  & Business Travelers, Free Parking
-                </h1>
+                <h1 className="text-3xl font-bold mb-2">{data.title}</h1>
                 <div className="flex items-center justify-between flex-wrap gap-2">
                   <div className="flex items-center space-x-2">
                     <div className="flex text-[#C59948]">
-                      <Star fill="currentColor" />
-                      <Star fill="currentColor" />
-                      <Star fill="currentColor" />
-                      <Star fill="currentColor" />
-                      <Star fill="currentColor" />
+                      {Array.from({
+                        length: Math.round(data.reviews.rating),
+                      }).map((_, i) => (
+                        <Star key={i} fill="currentColor" />
+                      ))}
                     </div>
                     <span className="text-sm text-gray-600">
-                      5.0 (Multiple reviews on Airbnb and Booking.com)
+                      {data.reviews.rating} ({data.reviews.count} reviews)
                     </span>
                     <span className="text-sm text-gray-600">•</span>
                     <span className="text-sm text-gray-600 flex items-center">
                       <MapPin size={14} className="mr-1" />
-                      Watford, United Kingdom
+                      {data.location}
                     </span>
                   </div>
                   <div className="flex gap-2">
@@ -83,23 +82,31 @@ const LuxuryApartmentListing: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <ImageGallery />
-              <Details />
+              <ImageGallery images={data.images} />
+              <Details
+                bedrooms={data.bedrooms}
+                bathrooms={data.bathrooms}
+                livingRooms={data.livingRooms}
+                guests={data.guests}
+                details={data.details}
+              />
               <Amenities />
-
               <ThingsToKnow />
             </div>
             <div className="w-full lg:w-1/3 space-y-4">
-              <BookingWidget isSticky={isDesktop} />
+              <BookingWidget
+                isSticky={isDesktop}
+                bookingUrl={data.externalBookingLink}
+              />
               <Card className="p-4 border-[#C59948] border-2 mt-4">
                 <h3 className="text-lg font-semibold mb-2">Location</h3>
                 <div className="w-full h-[200px] rounded">
                   {apiKey ? (
                     <GoogleMap
                       apiKey={apiKey}
-                      center={mapCenter}
+                      center={data.coordinates}
                       zoom={14}
-                      markerTitle="Enchanted Watford Escape"
+                      markerTitle={data.title}
                     />
                   ) : (
                     <p className="text-red-500">
@@ -107,15 +114,15 @@ const LuxuryApartmentListing: React.FC = () => {
                     </p>
                   )}
                 </div>
-                <p className="mt-2 text-sm text-gray-600">
-                  Aldenham Road, Watford, WD19 4AA, United Kingdom
-                </p>
+                <p className="mt-2 text-sm text-gray-600">{data.location}</p>
                 <Button
                   variant="link"
                   className="mt-2 text-[#C59948] p-0"
                   onClick={() =>
                     window.open(
-                      'https://www.google.com/maps/search/?api=1&query=Aldenham+Road,+Watford,+WD19+4AA,+United+Kingdom',
+                      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                        data.location
+                      )}`,
                       '_blank'
                     )
                   }
@@ -131,4 +138,4 @@ const LuxuryApartmentListing: React.FC = () => {
   );
 };
 
-export default LuxuryApartmentListing;
+export default PropertyListing;

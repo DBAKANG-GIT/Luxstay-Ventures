@@ -31,7 +31,7 @@ const ThingsToKnow: React.FC = () => (
           <li>Security camera/recording device</li>
           <li>Carbon monoxide alarm</li>
           <li>Smoke alarm</li>
-          <li>Must climb stairs - 2nd floor apartment</li>
+          <li>Must climb stairs</li>
         </ul>
       </TabsContent>
 

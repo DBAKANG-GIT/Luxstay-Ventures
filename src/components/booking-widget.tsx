@@ -3,9 +3,13 @@ import { Card } from '@/components/ui/card';
 
 interface BookingWidgetProps {
   isSticky?: boolean;
+  bookingUrl: string;
 }
 
-const BookingWidget: React.FC<BookingWidgetProps> = ({ isSticky = false }) => {
+const BookingWidget: React.FC<BookingWidgetProps> = ({
+  isSticky = false,
+  bookingUrl,
+}) => {
   // Determine if the viewport is mobile or not
   const [isMobile, setIsMobile] = useState(false);
 
@@ -27,7 +31,7 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ isSticky = false }) => {
           Check Availability
         </h3>
         <a
-          href="https://book.luxstayventures.com/listings?city=Brighton+and+Hove"
+          href={bookingUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="px-4 py-2 rounded bg-[#C59948] text-white hover:bg-[#b18b3b] text-sm font-medium"
@@ -50,7 +54,7 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ isSticky = false }) => {
       </h3>
       <div className="text-center">
         <a
-          href="https://book.luxstayventures.com/listings?city=Brighton+and+Hove"
+          href={bookingUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="px-4 py-2 rounded bg-[#C59948] text-white hover:bg-[#b18b3b]"
