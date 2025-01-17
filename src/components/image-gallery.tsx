@@ -4,44 +4,14 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { ArrowLeft, ArrowRight, Pause, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import Hero from '/public/images/webp/1.webp';
-import HeroWithKitchen from '/public/images/webp/living-room5.webp';
-import Kitchen from '/public/images/webp/kitchen6.webp';
-import Bedroom from '/public/images/webp/bedroom1.webp';
-import Bedroom_1_single from '/public/images/webp/bedroom1-singles.webp';
-import Bedroom_1 from '/public/images/webp/bedroom1.1.webp';
-import Bedroom_2 from '/public/images/webp/bedroom-2.webp';
-import Bedroom_2_external from '/public/images/webp/bedroom2-from-window.webp';
-import Toilet from '/public/images/webp/toilet.webp';
-import Toilet_2 from '/public/images/webp/toilet-2.webp';
-import Balcony from '/public/images/webp/balcony.webp';
-import FloorPlan from '/public/images/webp/floorplan.webp';
-import HarryPotter from '/public/images/harry-porter.jpeg';
-import BushyStation from '/public/images/bushey-station.jpeg';
-import WatfordMall from '/public/images/webp/watford-shopping-mall.webp';
-import WatfordHospital from '/public/images/watford-hospital.jpg';
 
-const ImageGallery: React.FC = () => {
+interface ImageGalleryProps {
+  images: string[];
+}
+
+const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
   const [currentImage, setCurrentImage] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
-  const images: string[] = [
-    Hero.src,
-    HeroWithKitchen.src,
-    Kitchen.src,
-    Bedroom.src,
-    Toilet.src,
-    Bedroom_1_single.src,
-    Bedroom_1.src,
-    Bedroom_2.src,
-    Bedroom_2_external.src,
-    Toilet_2.src,
-    Balcony.src,
-    FloorPlan.src,
-    HarryPotter.src,
-    BushyStation.src,
-    WatfordMall.src,
-    WatfordHospital.src,
-  ];
 
   const nextImage = useCallback(() => {
     setCurrentImage((prev) => (prev + 1) % images.length);
