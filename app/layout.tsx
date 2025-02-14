@@ -8,6 +8,7 @@ import darkLogo from '/public/images/icon.png';
 import lightLogo from '/public/images/icon-light.png';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import Script from 'next/script';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: '--font-plus-jakarta-sans',
@@ -39,11 +40,29 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
+      <head>
+        {/* Google Analytics GA4 Script */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-X0SZDJHBZ1"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-X0SZDJHBZ1', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+      </head>
       <body className={`${plusJakartaSans.variable} antialiased`}>
         <header className="sticky top-0 z-50">
           <Navbar />
